@@ -36,14 +36,18 @@
 
                 <div class="form-group mb-3">
                     <label for="area">Área</label>
-                    <input type="text" name="area" id="area" class="form-control" placeholder="Ingrese el área" required>
+                    <select name="area" id="area" class="form-select">
+                        <option value="Biomédica">Biomédica</option>
+                        <option value="Sistemas">Sistemas</option>
+                        <option value="Infraestructura">Infraestructura</option>
+                    </select>
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="responsable">Responsable</label>
                     <select name="responsable" id="responsable" class="form-select">
                         {% for result in results %}
-                            <option value="{{ result.id }}">{{ result.nombre }} {{ result.apellido }}</option>
+                            <option>{{ result.nombre }} {{ result.apellido }}</option>
                         {% endfor %}
                     </select>
                 </div>

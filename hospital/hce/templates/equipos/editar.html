@@ -16,8 +16,15 @@
       <input type="text" name="modelo" id="modelo" class="form-control" placeholder="" aria-describedby="helpId" value="{{infoEquipo.modelo.value}}">
       <label for="">Serial</label>
       <input type="text" name="serial" id="serial" class="form-control" placeholder="" aria-describedby="helpId" value="{{infoEquipo.serial.value}}">
-      <label for="">Area</label>
-      <input type="text" name="area" id="area" class="form-control" placeholder="" aria-describedby="helpId" value="{{infoEquipo.area.value}}">
+      <div class="form-group mb-3">
+        <label for="area">Área</label>
+        <select name="area" id="area" class="form-select">
+            <option>{{infoEquipo.area.value}}</option>
+            <option value="Biomédica">Biomédica</option>
+            <option value="Sistemas">Sistemas</option>
+            <option value="Infraestructura">Infraestructura</option>
+        </select>
+    </div>
       <label for="">Responsable</label>
       <select name="responsable" id="responsable">
             <option>{{infoEquipo.responsable.value}}</option>
