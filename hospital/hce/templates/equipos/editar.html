@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    .:. Edición de Activos .:.
+{% endblock %}
+
+{% block contenido %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="">Nombre</label>
+      <input type="text" name="nombre" id="nombre" class="form-control" placeholder="" aria-describedby="helpId" value="{{infoEquipo.nombre.value}}">
+      <label for="">Marca</label>
+      <input type="text" name="marca" id="marca" class="form-control" placeholder="" aria-describedby="helpId" value="{{infoEquipo.marca.value}}">
+      <label for="">Modelo</label>
+      <input type="text" name="modelo" id="modelo" class="form-control" placeholder="" aria-describedby="helpId" value="{{infoEquipo.modelo.value}}">
+      <label for="">Serial</label>
+      <input type="text" name="serial" id="serial" class="form-control" placeholder="" aria-describedby="helpId" value="{{infoEquipo.serial.value}}">
+      <label for="">Area</label>
+      <input type="text" name="area" id="area" class="form-control" placeholder="" aria-describedby="helpId" value="{{infoEquipo.area.value}}">
+      <label for="">Responsable</label>
+      <select name="responsable" id="responsable">
+            <option>{{infoEquipo.responsable.value}}</option>
+        {% for result in results %}
+            <option>{{ result.nombre }} {{result.apellido}}</option>
+        {% endfor %}
+        </select>
+        <br><br>
+      <label for="">Foto</label>
+      <input type="file" name="foto" id="foto" class="form-control" placeholder="" aria-describedby="helpId" value="{{infoEquipo.foto.value}}">
+    </div>
+    <div>
+        <br><br>
+        <button type="submit" class="btn btn-success">Actualizar</button>
+        <a name="" id="" class="btn btn-danger" href="{% url 'equipos' %}" role="button">Cancelar</a>
+    </div>
+</form>
+{% endblock %}

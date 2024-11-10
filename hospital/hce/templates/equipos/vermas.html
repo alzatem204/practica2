@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    .:. Información Activo .:.
+{% endblock %}
+
+{% block contenido %}
+<div class="container my-5">
+    <h2 class="text-center mb-4">Información Activo</h2>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <img src="{{ equipo.foto.url }}" class="card-img-top" alt="Foto de {{ equipo.nombre }}" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+                <h5 class="card-title">{{ equipo.nombre }}</h5>
+                <p class="card-text"><strong>Marca:</strong> {{ equipo.marca }}</p>
+                <p class="card-text"><strong>Serial:</strong> {{ equipo.serial }}</p>
+                <p class="card-text"><strong>Área:</strong> {{ equipo.area }}</p>
+                <p class="card-text"><strong>Responsable:</strong> {{ equipo.responsable }}</p>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <a href="{% url 'editar' equipo.id %}" class="btn btn-primary btn-sm">Editar</a>
+                <a href="{% url 'borrar' equipo.id %}" class="btn btn-danger btn-sm">Borrar</a>
+            </div>
+        </div>
+    </div>
+        <div>
+            <br><br>
+            <a name="" id="" class="btn btn-danger" href="{% url 'equipos' %}" role="button">Volver</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

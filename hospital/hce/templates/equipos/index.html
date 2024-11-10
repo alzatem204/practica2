@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    .:. Lista de Equipos .:.
+{% endblock %}
+
+{% block contenido %}
+<div class="container my-5">
+    <h2 class="text-center mb-4">Lista de Activos</h2>
+
+    <!-- Sección para el área Biomédica -->
+    <div class="mb-5">
+        <h3>Área Biomédica</h3>
+        <div class="row">
+            {% for equipo in equipos %}
+                {% if equipo.area == "Biomédica" %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{{ equipo.foto.url }}" class="card-img-top" alt="Foto de {{ equipo.nombre }}" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ equipo.nombre }}</h5>
+                            <p class="card-text"><strong>Serial:</strong> {{ equipo.serial }}</p>
+                            <p class="card-text"><strong>Área:</strong> {{ equipo.area }}</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            <a href="{% url 'editar' equipo.id %}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{% url 'vermas' equipo.id %}" class="btn btn-primary btn-sm">Ver más</a>
+                            <a href="{% url 'borrar' equipo.id %}" class="btn btn-danger btn-sm">Borrar</a>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Sección para el área de Infraestructura -->
+    <div class="mb-5">
+        <h3>Área de Infraestructura</h3>
+        <div class="row">
+            {% for equipo in equipos %}
+                {% if equipo.area == "Infraestructura" %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{{ equipo.foto.url }}" class="card-img-top" alt="Foto de {{ equipo.nombre }}" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ equipo.nombre }}</h5>
+                            <p class="card-text"><strong>Serial:</strong> {{ equipo.serial }}</p>
+                            <p class="card-text"><strong>Área:</strong> {{ equipo.area }}</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            <a href="{% url 'editar' equipo.id %}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{% url 'vermas' equipo.id %}" class="btn btn-primary btn-sm">Ver más</a>
+                            <a href="{% url 'borrar' equipo.id %}" class="btn btn-danger btn-sm">Borrar</a>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Sección para el área de Sistemas -->
+    <div class="mb-5">
+        <h3>Área de Sistemas</h3>
+        <div class="row">
+            {% for equipo in equipos %}
+                {% if equipo.area == "Sistemas" %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{{ equipo.foto.url }}" class="card-img-top" alt="Foto de {{ equipo.nombre }}" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ equipo.nombre }}</h5>
+                            <p class="card-text"><strong>Serial:</strong> {{ equipo.serial }}</p>
+                            <p class="card-text"><strong>Área:</strong> {{ equipo.area }}</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            <a href="{% url 'editar' equipo.id %}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{% url 'vermas' equipo.id %}" class="btn btn-primary btn-sm">Ver más</a>
+                            <a href="{% url 'borrar' equipo.id %}" class="btn btn-danger btn-sm">Borrar</a>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="text-center text-muted mt-4">
+        <small>IngSoft 2.0</small>
+    </div>
+</div>
+{% endblock %}

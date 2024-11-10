@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    .:. Lista de Responsables .:.
+{% endblock %}
+
+{% block contenido %}
+<div class="card">
+    <div class="card-header">
+        Lista Responsables
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Documento</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for responsable in responsables %}
+                <tr>
+                    <td>{{responsable.id}}</td>
+                    <td>{{responsable.documento}}</td>
+                    <td>{{responsable.nombre}}</td>
+                    <td>{{responsable.apellido}}</td>
+                    <td>{{responsable.correo}}</td>
+                    <td>
+                        <a href="{% url 'editar_resp' responsable.id %}" class="btn btn-primary">Editar</a>
+                        <a href="{% url 'borrar_resp' responsable.id %}" class="btn btn-danger">Borrar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer text-muted">
+        IngSoft 2.0
+    </div>
+</div>
+{% endblock %}

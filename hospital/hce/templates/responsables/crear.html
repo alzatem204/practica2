@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    .:. Adición de Responsables .:.
+{% endblock %}
+
+{% block contenido %}
+<div class="container d-flex justify-content-center my-5">
+    <div class="card shadow" style="width: 100%; max-width: 500px;">
+        <div class="card-header text-center">
+            <h4>Agregar Responsable</h4>
+        </div>
+        <div class="card-body">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="documento">Documento</label>
+                    <input type="text" name="documento" id="documento" class="form-control" placeholder="Ingrese el documento" aria-describedby="helpId">
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese el nombre" aria-describedby="helpId">
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Ingrese el apellido" aria-describedby="helpId">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo</label>
+                    <input type="email" name="correo" id="correo" class="form-control" placeholder="Ingrese el correo electrónico" aria-describedby="helpId">
+                </div>
+                <div class="d-flex justify-content-between mt-4">
+                    <button type="submit" class="btn btn-success w-100 me-2">Crear</button>
+                    <a class="btn btn-danger w-100 ms-2" href="{% url 'responsables' %}" role="button">Cancelar</a>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-center text-muted">
+            IngSoft 2.0
+        </div>
+    </div>
+</div>
+{% endblock %}

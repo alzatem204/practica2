@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    .:. Adición de Activos .:.
+{% endblock %}
+
+{% block contenido %}
+<div class="container d-flex justify-content-center my-5">
+    <div class="card shadow" style="width: 100%; max-width: 600px;">
+        <div class="card-header text-center">
+            <h4>Agregar Nuevo Activo</h4>
+        </div>
+        <div class="card-body">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-group mb-3">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese el nombre del activo" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="marca">Marca</label>
+                    <input type="text" name="marca" id="marca" class="form-control" placeholder="Ingrese la marca" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="modelo">Modelo</label>
+                    <input type="text" name="modelo" id="modelo" class="form-control" placeholder="Ingrese el modelo" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="serial">Serial</label>
+                    <input type="text" name="serial" id="serial" class="form-control" placeholder="Ingrese el número de serie" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="area">Área</label>
+                    <input type="text" name="area" id="area" class="form-control" placeholder="Ingrese el área" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="responsable">Responsable</label>
+                    <select name="responsable" id="responsable" class="form-select">
+                        {% for result in results %}
+                            <option value="{{ result.id }}">{{ result.nombre }} {{ result.apellido }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="foto">Foto</label>
+                    <input type="file" name="foto" id="foto" class="form-control-file">
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success w-100 me-2">Crear</button>
+                    <a href="{% url 'equipos' %}" class="btn btn-danger w-100 ms-2">Cancelar</a>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-center text-muted">
+            IngSoft 2.0
+        </div>
+    </div>
+</div>
+{% endblock %}
